@@ -33,8 +33,8 @@ def solve_nqueens(N):
     solve(board, 0, solutions)
     return solutions
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
+         if __name__ == "__main__":
+         if len(sys.argv) != 2:
         print_usage_and_exit()
     
     try:
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         print("N must be a number")
         sys.exit(1)
     
-    if N < 4:
+         if N < 4:
         print("N must be at least 4")
         sys.exit(1)
     
