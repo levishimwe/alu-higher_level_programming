@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """Are you docuemnted ?"""
-
 def append_after(filename="", search_string="", new_string=""):
+    
     """
     Insert a line of text after each a specific string in a file.
     Args:
