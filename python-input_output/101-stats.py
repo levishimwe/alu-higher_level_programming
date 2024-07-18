@@ -11,7 +11,7 @@ import sys
 
 def print_stats(total_size, status_codes):
     """Print accumulated statistics."""
-    print("File size:", total_size)
+    print("File size: {}".format(total_size))
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
@@ -33,16 +33,17 @@ line_count = 0
 try:
     for line in sys.stdin:
         size, status = parse_line(line.strip())
-        if size is not None:
+        if size is not None and status is not None:
             total_size += size
-        if status in status_codes:
-            status_codes[status] += 1
+            if status in status_codes:
+                status_codes[status] += 1
         
         line_count += 1
         if line_count % 10 == 0:
             print_stats(total_size, status_codes)
 
 except KeyboardInterrupt:
-    pass
+    print_stats(total_size, status_codes)
+    raise
 finally:
     print_stats(total_size, status_codes)
