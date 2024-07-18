@@ -2,7 +2,7 @@
 import sys
 
 def print_stats(total_size, status_codes):
-    print("File size:", total_size)
+    print(f"File size: {total_size}")
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print(f"{code}: {status_codes[code]}")
@@ -31,9 +31,7 @@ try:
         line_count += 1
         if line_count % 10 == 0:
             print_stats(total_size, status_codes)
-
 except KeyboardInterrupt:
     pass
-
 finally:
     print_stats(total_size, status_codes)
