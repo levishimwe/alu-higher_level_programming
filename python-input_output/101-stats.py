@@ -10,6 +10,8 @@ def print_stats(total_size, status_codes):
 def parse_line(line):
     try:
         parts = line.split()
+        if len(parts) < 2:
+            return None, None
         size = int(parts[-1])
         status = int(parts[-2])
         return size, status
@@ -23,10 +25,10 @@ line_count = 0
 try:
     for line in sys.stdin:
         size, status = parse_line(line.strip())
-        if size is not None and status is not None:
+        if size is not None:
             total_size += size
-            if status in status_codes:
-                status_codes[status] += 1
+        if status in status_codes:
+            status_codes[status] += 1
         
         line_count += 1
         if line_count % 10 == 0:
