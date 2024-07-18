@@ -1,13 +1,23 @@
 #!/usr/bin/python3
+"""
+This module reads stdin line by line and computes metrics.
+
+It calculates the total file size and counts occurrences of
+HTTP status codes. Stats are printed every 10 lines and when
+interrupted by CTRL+C.
+"""
+
 import sys
 
 def print_stats(total_size, status_codes):
+    """Print accumulated statistics."""
     print("File size:", total_size)
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
             print("{}: {}".format(code, status_codes[code]))
 
 def parse_line(line):
+    """Parse a line of input and extract size and status code."""
     try:
         parts = line.split()
         size = int(parts[-1])
