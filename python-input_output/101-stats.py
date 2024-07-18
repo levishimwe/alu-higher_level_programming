@@ -2,16 +2,14 @@
 import sys
 
 def print_stats(total_size, status_codes):
-    print(f"File size: {total_size}")
+    print("File size:", total_size)
     for code in sorted(status_codes.keys()):
         if status_codes[code] > 0:
-            print(f"{code}: {status_codes[code]}")
+            print("{}: {}".format(code, status_codes[code]))
 
 def parse_line(line):
     try:
         parts = line.split()
-        if len(parts) < 2:
-            return None, None
         size = int(parts[-1])
         status = int(parts[-2])
         return size, status
@@ -24,7 +22,8 @@ line_count = 0
 
 try:
     for line in sys.stdin:
-        size, status = parse_line(line.strip())
+        line = line.strip()
+        size, status = parse_line(line)
         if size is not None:
             total_size += size
         if status in status_codes:
