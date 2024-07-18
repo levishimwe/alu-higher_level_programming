@@ -22,12 +22,11 @@ line_count = 0
 
 try:
     for line in sys.stdin:
-        line = line.strip()
-        size, status = parse_line(line)
-        if size is not None:
-            total_size += size
-        if status in status_codes:
-            status_codes[status] += 1
+    line = line.strip()
+    print(f"Debug: Processing line: {line}")  # Debug print
+    size, status = parse_line(line)
+    print(f"Debug: Parsed size: {size}, status: {status}")  # Debug print
+    # ... rest of the code
         
         line_count += 1
         if line_count % 10 == 0:
