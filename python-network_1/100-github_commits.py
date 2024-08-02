@@ -1,6 +1,11 @@
 #!/usr/bin/python3
-"""Fetches and lists commits from a GitHub repository."""
+"""
+This module fetches and lists commits from a GitHub repository.
 
+It uses the GitHub API to retrieve the 10 most recent commits
+from a specified repository and prints the SHA and author name
+for each commit.
+"""
 import sys
 import requests
 
@@ -21,9 +26,7 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: ./script.py <repository_name> <owner_name>")
         sys.exit(1)
-
     repo_name = sys.argv[1]
     owner_name = sys.argv[2]
     get_commits(repo_name, owner_name)
-
-
+    
