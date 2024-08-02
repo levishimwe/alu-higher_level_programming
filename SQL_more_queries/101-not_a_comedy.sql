@@ -1,6 +1,10 @@
--- List all shows by their rating
-SELECT tv_shows.title, SUM(tv_show_ratings.rate) AS rating
+-- List all shows without the genre Comedy
+SELECT DISTINCT tv_shows.title
 FROM tv_shows
-LEFT JOIN tv_show_ratings ON tv_shows.id = tv_show_ratings.show_id
-GROUP BY tv_shows.id
-ORDER BY rating DESC;
+WHERE tv_shows.id NOT IN
+    (SELECT tv_shows.id
+     FROM tv_shows
+     INNER JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+     INNER JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+     WHERE tv_genres.name = 'Comedy')
+ORDER BY tv_shows.title ASC;
