@@ -6,8 +6,8 @@ It uses the GitHub API to retrieve the 10 most recent commits
 from a specified repository and prints the SHA and author name
 for each commit.
 """
-import sys
 import requests
+import sys
 
 def get_commits(repo_name, owner_name):
     """Fetches and lists 10 commits from the specified GitHub repository."""
