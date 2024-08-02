@@ -9,4 +9,3 @@ if __name__ == "__main__":
     respo = requests.get(sys.argv[1])
     header_var = respo.headers.get('X-Request-Id')
     print(header_var)
-
