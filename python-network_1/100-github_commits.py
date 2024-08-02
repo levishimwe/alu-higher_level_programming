@@ -9,8 +9,6 @@ for each commit.
 import sys
 import requests
 
-# Rest of the code remains the same...
-
 def get_commits(repo_name, owner_name):
     """Fetches and lists 10 commits from the specified GitHub repository."""
     url = f"https://api.github.com/repos/{owner_name}/{repo_name}/commits"
