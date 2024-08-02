@@ -11,4 +11,3 @@ if __name__ == '__main__':
     new_value = {'email': sys.argv[2]}
     req = requests.post(sys.argv[1], new_value)
     print(req.text)
-
