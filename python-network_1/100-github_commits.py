@@ -29,4 +29,3 @@ if __name__ == "__main__":
     repo_name = sys.argv[1]
     owner_name = sys.argv[2]
     get_commits(repo_name, owner_name)
-    
